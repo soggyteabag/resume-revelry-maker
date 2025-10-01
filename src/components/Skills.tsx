@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const skillCategories = [
   {
     category: "IT & Cloud Systems",
@@ -19,29 +21,42 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="skills" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-primary">Skills</h2>
+        <div className="max-w-6xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold mb-16 text-foreground flex items-center gap-4"
+          >
+            <span className="text-accent">03.</span> SKILLS
+          </motion.h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="bg-card rounded-2xl p-8 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] transition-shadow border border-border"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-card rounded-lg p-8 border border-border hover:border-accent/50 transition-colors"
               >
-                <h3 className="text-xl font-bold text-accent mb-6">{category.category}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-6">{category.category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, i) => (
-                    <span 
+                    <motion.span 
                       key={i}
-                      className="px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
+                      whileHover={{ scale: 1.05 }}
+                      className="px-4 py-2 bg-secondary text-foreground rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

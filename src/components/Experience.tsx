@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const experiences = [
   {
     title: "Key Accounts Manager",
@@ -57,41 +59,91 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
-    <section id="experience" className="py-24 bg-background">
+    <section id="experience" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-primary">Experience</h2>
+        <div className="max-w-6xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold mb-16 text-foreground flex items-center gap-4"
+          >
+            <span className="text-accent">02.</span> EXPERIENCE
+          </motion.h2>
           
-          <div className="space-y-12">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-16"
+          >
             {experiences.map((exp, index) => (
-              <div 
+              <motion.div 
                 key={index} 
-                className="group relative pl-8 border-l-2 border-accent/30 hover:border-accent transition-colors"
+                variants={itemVariants}
+                className="grid md:grid-cols-3 gap-6"
               >
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/50" />
-                
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-primary group-hover:text-accent transition-colors">
+                <div>
+                  <p className="text-sm text-accent mb-2">{exp.dates}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-1">
                     {exp.title}
                   </h3>
-                  <p className="text-lg text-muted-foreground mt-1">
+                  <p className="text-base text-muted-foreground">
                     {exp.company} • {exp.location}
                   </p>
-                  <p className="text-sm text-muted-foreground/70 mt-1">{exp.dates}</p>
                 </div>
                 
-                <ul className="space-y-3">
+                <motion.ul 
+                  className="md:col-span-2 space-y-3"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.1
+                      }
+                    }
+                  }}
+                >
                   {exp.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-accent mr-3 mt-1.5 flex-shrink-0">•</span>
-                      <span className="text-foreground/80 leading-relaxed">{achievement}</span>
-                    </li>
+                    <motion.li 
+                      key={i} 
+                      variants={{
+                        hidden: { opacity: 0, x: -10 },
+                        visible: { opacity: 1, x: 0 }
+                      }}
+                      className="flex items-start text-muted-foreground leading-relaxed"
+                    >
+                      <span className="text-accent mr-3 mt-1 flex-shrink-0">→</span>
+                      {achievement}
+                    </motion.li>
                   ))}
-                </ul>
-              </div>
+                </motion.ul>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
@@ -7,42 +7,64 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90" />
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIvPjwvZz48L3N2Zz4=')] bg-repeat" />
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 tracking-tight">
-            Thomas Miller Carr
-          </h1>
-          <p className="text-2xl md:text-3xl text-primary-foreground/90 mb-8 font-light">
-            Logistics & Operations Specialist
-          </p>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed italic">
-            "I believe in transforming complex supply chains into seamless experiences, 
-            where strategic vision meets operational excellence."
-          </p>
-          
-          <Button
-            onClick={scrollToAbout}
-            size="lg"
-            variant="secondary"
-            className="group"
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* Left side - Years experience */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-accent text-xl font-bold"
           >
-            Explore My Work
-            <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-          </Button>
+            <div className="text-accent mb-2">2018 → 2025</div>
+            <div className="text-accent">7+ yrs exp.</div>
+          </motion.div>
+
+          {/* Center - Name and title */}
+          <div className="md:col-span-2 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold text-foreground mb-4 tracking-tight leading-none">
+                THOMAS
+                <br />
+                MILLER CARR
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                Logistics & Operations Specialist, based in Copenhagen
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
       
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/30 flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-primary-foreground/50 rounded-full" />
+      {/* Scroll indicator */}
+      <motion.button
+        onClick={scrollToAbout}
+        className="absolute bottom-12 right-12 text-muted-foreground hover:text-accent transition-colors cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-sm">Scroll</span>
+          <ArrowDown className="w-4 h-4" />
         </div>
-      </div>
+      </motion.button>
+
+      {/* Tagline - top right */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="absolute top-8 right-8 md:right-16 max-w-md text-right text-sm text-muted-foreground leading-relaxed"
+      >
+        "I believe in transforming complex supply chains into seamless experiences, 
+        where strategic vision meets operational excellence."
+      </motion.div>
     </section>
   );
 };
