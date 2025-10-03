@@ -7,10 +7,12 @@ import Languages from "@/components/Languages";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <ThemeToggle />
       <Hero />
       <About />
       <Experience />
