@@ -1,25 +1,8 @@
 import { motion } from "framer-motion";
-
-const skillCategories = [
-  {
-    category: "IT & Cloud Systems",
-    skills: ["Networking", "Systems Administration", "Azure", "AWS", "IT Troubleshooting", "Cloud Infrastructure"]
-  },
-  {
-    category: "Operations & Logistics",
-    skills: ["Supply Chain Management", "Infrastructure Deployment", "Site Coordination", "Vendor Negotiations", "Project Management"]
-  },
-  {
-    category: "Business & Leadership",
-    skills: ["Customer Service", "Strategic Communication", "Data Analysis", "People Management", "International Client Relations"]
-  },
-  {
-    category: "Software & Tools",
-    skills: ["Microsoft Office Suite", "Adobe Creative Tools", "Active Directory", "Digital Survey Tools", "SEO Strategy"]
-  }
-];
+import { resumeData } from "@/data/resume";
 
 const Skills = () => {
+  const { skills } = resumeData;
   return (
     <section id="skills" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">
@@ -35,7 +18,7 @@ const Skills = () => {
           </motion.h2>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {skillCategories.map((category, index) => (
+            {skills.map((category, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

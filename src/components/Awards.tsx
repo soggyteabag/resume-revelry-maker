@@ -1,31 +1,8 @@
 import { motion } from "framer-motion";
-
-const awardsAndAchievements = [
-  {
-    title: "Jack Petchey Award",
-    description: "Recipient for outstanding leadership and dedication in Scout involvement and community service",
-    year: "2017"
-  },
-  {
-    title: "Head of ARU Rowing Club",
-    description: "Led the university rowing club to championship success as Cam Winners",
-    year: "2018"
-  },
-  {
-    title: "Leadership & Events",
-    description: "London Marathon setup and onsite operations coordinator, Fraser Island Tour Ambassador",
-    year: "2019 – 2024"
-  }
-];
-
-const additionalExperience = [
-  "WOMAD Festival Ambassador – Cultural event promotion and coordination",
-  "Seasonal Agricultural Work – Kiwi Harvester, Mat Johnston Contracting (2023-2024)",
-  "Hospitality – Bartender/Waiter at Laguna Jacks, Royal Ascot Private Events",
-  "Volunteer Leadership – Receptionist & Team Lead at Nomads Australia"
-];
+import { resumeData } from "@/data/resume";
 
 const Awards = () => {
+  const { awards, additionalExperience } = resumeData;
   return (
     <section id="awards" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">
@@ -41,7 +18,7 @@ const Awards = () => {
           </motion.h2>
           
           <div className="space-y-12 mb-16">
-            {awardsAndAchievements.map((award, index) => (
+            {awards.map((award, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

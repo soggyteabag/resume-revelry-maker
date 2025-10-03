@@ -1,64 +1,8 @@
 import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    title: "Key Accounts Manager",
-    company: "The Prestige Group",
-    location: "London",
-    dates: "Jan 2025 – Present",
-    achievements: [
-      "Orchestrated end-to-end private aviation logistics across 500+ active international accounts",
-      "Drove 40% revenue growth within six months through strategic partnership expansion and enhanced client relations",
-      "Spearheaded international growth initiatives, including supplier negotiations and partner onboarding",
-      "Led SEO strategy development and weekly content management, strengthening digital presence"
-    ]
-  },
-  {
-    title: "Assistant Foreman / Project Construction",
-    company: "Key Structures Ltd",
-    location: "London",
-    dates: "Apr 2022 – Jan 2025",
-    achievements: [
-      "Supervised marquee structure installations for prestigious clients including Buckingham Palace and Metropolitan Police",
-      "Coordinated suppliers, operators, and clients to ensure seamless multi-site operations",
-      "Managed cross-functional teams, delivering projects on time while maintaining rigorous safety compliance"
-    ]
-  },
-  {
-    title: "Field Operator",
-    company: "Aoraki Tree & Scrub",
-    location: "Mackenzie District, NZ",
-    dates: "Jan 2024 – Aug 2024",
-    achievements: [
-      "Executed environmental conservation initiatives, identifying and removing invasive species to restore biodiversity",
-      "Led native planting and wetland restoration projects aligned with government ecological standards",
-      "Managed field data collection using digital survey tools for the NZ Department of Conservation"
-    ]
-  },
-  {
-    title: "Mine Site Utilities Coordinator",
-    company: "BHP / ESS",
-    location: "Olympic Dam, South Australia",
-    dates: "Aug 2021 – Feb 2022",
-    achievements: [
-      "Supported daily utility operations at one of Australia's largest mining facilities",
-      "Coordinated operations teams on administrative tasks and site management protocols"
-    ]
-  },
-  {
-    title: "Teaching Assistant",
-    company: "Southfields Academy",
-    location: "SW London",
-    dates: "Aug 2018 – Aug 2019",
-    achievements: [
-      "Provided tailored support to students aged 11–19 with Special Educational Needs at an Outstanding Ofsted Academy",
-      "Delivered targeted small-group interventions and in-class support as part of The Achievement Studio",
-      "Collaborated with educational psychologists and speech therapists to achieve individualized learning outcomes"
-    ]
-  }
-];
+import { resumeData } from "@/data/resume";
 
 const Experience = () => {
+  const { experience } = resumeData;
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -99,7 +43,7 @@ const Experience = () => {
             viewport={{ once: true }}
             className="space-y-16"
           >
-            {experiences.map((exp, index) => (
+            {experience.map((exp, index) => (
               <motion.div 
                 key={index} 
                 variants={itemVariants}

@@ -1,27 +1,8 @@
 import { motion } from "framer-motion";
-
-const educationItems = [
-  {
-    degree: "BA (Hons) History – 2:1",
-    institution: "Anglia Ruskin University",
-    location: "Cambridge",
-    dates: "2015 – 2018"
-  },
-  {
-    degree: "Google IT Support Professional Certificate",
-    institution: "Google / Coursera",
-    location: "Online",
-    dates: "2024"
-  },
-  {
-    degree: "AWS Certified Cloud Practitioner",
-    institution: "Amazon Web Services",
-    location: "Online",
-    dates: "2024"
-  }
-];
+import { resumeData } from "@/data/resume";
 
 const Education = () => {
+  const { education } = resumeData;
   return (
     <section id="education" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">
@@ -37,7 +18,7 @@ const Education = () => {
           </motion.h2>
           
           <div className="space-y-8">
-            {educationItems.map((item, index) => (
+            {education.map((item, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

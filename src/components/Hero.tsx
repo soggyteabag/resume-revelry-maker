@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.jpg";
+import { resumeData } from "@/data/resume";
 
 const Hero = () => {
+  const { personal } = resumeData;
+  
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -18,7 +21,7 @@ const Hero = () => {
       >
         <img 
           src={heroPhoto} 
-          alt="Thomas Miller Carr" 
+          alt={personal.name} 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -34,8 +37,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white text-xl font-bold"
           >
-            <div className="mb-2">2018 → 2025</div>
-            <div>7+ yrs exp.</div>
+            <div className="mb-2">{personal.yearsExperience.start} → {personal.yearsExperience.end}</div>
+            <div>{personal.yearsExperience.total}</div>
           </motion.div>
 
           {/* Center - Name and title */}
@@ -45,13 +48,11 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight leading-none">
-                THOMAS
-                <br />
-                MILLER CARR
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight leading-none whitespace-pre-line">
+                {personal.name}
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8">
-                Logistics & Operations Specialist, based in Copenhagen
+                {personal.title}, based in {personal.location}
               </p>
             </motion.div>
           </div>
@@ -79,8 +80,7 @@ const Hero = () => {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="absolute top-8 right-8 md:right-16 max-w-md text-right text-sm text-white/90 leading-relaxed"
       >
-        "I believe in transforming complex supply chains into seamless experiences, 
-        where strategic vision meets operational excellence."
+        "{personal.tagline}"
       </motion.div>
     </section>
   );

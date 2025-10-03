@@ -1,17 +1,8 @@
 import { motion } from "framer-motion";
-
-const languages = [
-  {
-    name: "English",
-    proficiency: "Native"
-  },
-  {
-    name: "Danish",
-    proficiency: "Conversational"
-  }
-];
+import { resumeData } from "@/data/resume";
 
 const Languages = () => {
+  const { languages } = resumeData;
   return (
     <section id="languages" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">

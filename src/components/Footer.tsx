@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { resumeData } from "@/data/resume";
 
 const Footer = () => {
+  const { personal } = resumeData;
+  const fullName = personal.name.replace(/\n/g, ' ');
   return (
     <footer className="bg-background py-12 border-t border-border">
       <div className="container mx-auto px-6">
@@ -13,7 +16,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Thomas Miller Carr. All rights reserved.
+              © {new Date().getFullYear()} {fullName}. All rights reserved.
             </p>
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
