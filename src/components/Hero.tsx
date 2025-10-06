@@ -72,16 +72,6 @@ const Hero = () => {
           <ArrowDown className="w-4 h-4" />
         </div>
       </motion.button>
-
-      {/* Tagline - top right */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute top-8 right-8 md:right-16 max-w-md text-right text-sm text-white/90 leading-relaxed"
-      >
-        {personal.tagline}
-      </motion.div>
     </section>
   );
 };
