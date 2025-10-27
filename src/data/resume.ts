@@ -80,79 +80,98 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   personal: {
     name: "THOMAS\nMILLER CARR",
-    title: "Logistics & Operations Specialist",
+    title: "Operations & Automation Specialist",
     location: "Copenhagen",
     yearsExperience: {
       start: 2018,
       end: 2025,
       total: "7+ yrs exp."
     },
-    tagline: "I believe in transforming complex supply chains into seamless experiences, where strategic vision meets operational excellence."
+    tagline: "Transforming operations through automation, cloud infrastructure, and strategic process optimization."
   },
 
   about: {
     paragraphs: [
-      "With over five years of experience spanning aviation, construction, and environmental sectors, I specialize in delivering end-to-end logistics and operations solutions that drive measurable results. Recently relocated to Copenhagen, I bring a unique blend of international client management expertise, vendor negotiation skills, and a proven track record of optimizing complex supply chains.",
-      "My approach combines strategic thinking with hands-on execution, whether managing 500+ aviation accounts, coordinating high-profile construction projects for prestigious clients, or implementing IT and cloud systems to enhance operational efficiency. I thrive on building global partnerships and turning logistical challenges into competitive advantages."
+      "Operations professional with 5+ years' experience in transport and project coordination, specializing in automation and cloud infrastructure. I deliver end-to-end aviation, transport, construction, and environmental solutions with a focus on efficiency and measurable business outcomes. Recently relocated to Copenhagen, I bring proven expertise in international client portfolio management and systems integration.",
+      "My approach blends strategic vision with hands-on execution—whether managing 500+ active client accounts, building AI workflow automations using n8n and Workato to reduce manual processing, or coordinating high-profile projects for prestigious clients. I thrive on optimizing operations, developing global partnerships, and turning complex logistical challenges into competitive advantages."
     ]
   },
 
   experience: [
     {
-      title: "Operations Coordinator",
-      company: "Wayman Group",
-      location: "UK",
-      dates: "Oct 2023 – Oct 2024",
+      title: "Key Accounts Manager",
+      company: "The Prestige Group",
+      location: "London",
+      dates: "Jan 2025 – Present",
       achievements: [
-        "Managed vendor selection and negotiation for complex construction projects, including high-profile clients such as Bentley Motors and Mulberry",
-        "Developed and maintained a comprehensive database of 500+ products using Excel and Google Sheets to ensure efficient tracking and accuracy",
-        "Coordinated supply chain logistics for large-scale commercial construction projects, ensuring timely delivery and cost-effective solutions",
-        "Built and strengthened relationships with key vendors, improving contract terms and service reliability"
+        "Managing end-to-end operations for over 500 active client accounts across private aviation, ground transport, and premium event logistics",
+        "Achieved 40% revenue growth within 6 months for my department, improving client account relations and retention; growing the international concierge department over 15% monthly",
+        "Delivered bespoke logistical solutions for VIP and corporate clientele, ensuring seamless, time-critical travel coordination",
+        "Regulated SEO automation and content management strategy using scheduled publishing workflows, increasing company website traffic and generating monthly inbound leads",
+        "Streamlined supplier onboarding process by executing international growth strategies overseeing contract negotiations"
       ]
     },
     {
-      title: "Supply Chain Coordinator",
-      company: "Skytanking",
-      location: "UK",
-      dates: "Apr 2020 – Sep 2023",
+      title: "Assistant Foreman / Project Construction",
+      company: "Key Structures Ltd",
+      location: "London",
+      dates: "Apr 2022 – Jan 2025",
       achievements: [
-        "Coordinated international fuel shipments for 500+ airlines across 2 global regions, including all major commercial carriers",
-        "Streamlined supplier relationships and contract negotiations, securing better pricing and delivery timelines",
-        "Collaborated closely with finance and operations teams to manage invoicing, shipping schedules, and compliance requirements",
-        "Implemented process improvements that reduced delivery delays and enhanced overall supply chain visibility",
-        "Played a key role in maintaining strong client relationships, resulting in increased contract renewals and customer satisfaction"
+        "Supervised on-site delivery of premium marquee installations for high-profile clients including Buckingham Palace, Metropolitan Police, and corporate events",
+        "Coordinated company logistics with 20+ suppliers and subcontractors, resolving delivery challenges and maintaining quality, resulting in a 94% client satisfaction rating",
+        "Led small cross-functional teams of 6-10 personnel across multiple work sites in London and beyond"
       ]
     },
     {
-      title: "Account Manager",
-      company: "Restoration Ecology",
-      location: "UK",
-      dates: "Jul 2018 – Mar 2020",
+      title: "Field Operator",
+      company: "Aoraki Tree & Scrub",
+      location: "Mackenzie District, NZ",
+      dates: "Jan 2024 – Aug 2024",
       achievements: [
-        "Oversaw all aspects of client account management for environmental restoration projects across the UK",
-        "Coordinated with suppliers and contractors to ensure timely procurement and delivery of materials and services",
-        "Conducted detailed project planning and reporting, ensuring adherence to environmental standards and budgets",
-        "Developed strong client relationships, leading to repeat business and positive long-term partnerships"
+        "Executed environmental restoration projects across 2,000+ hectares using GPS mapping and digital surveying tools to track invasive species removal and biodiversity recovery",
+        "Engaged in native planting and restoration efforts in compliance with government ecological regulations to restore wildlife areas surrounding Mt. Cook",
+        "Managed field data collection and quality assurance for submissions to the New Zealand Department of Conservation, filing over 100+ survey reports"
+      ]
+    },
+    {
+      title: "Mine Site Utilities",
+      company: "BHP / ESS",
+      location: "Olympic Dam, South Australia",
+      dates: "Aug 2021 – Feb 2022",
+      achievements: [
+        "Supported daily utilities maintenance and operations coordination at Australia's largest underground mine serving 4,000+ personnel",
+        "Coordinated between operations teams and administrative departments to optimize equipment scheduling, improving maintenance response times across site"
+      ]
+    },
+    {
+      title: "Teaching Assistant",
+      company: "Southfields Academy",
+      location: "SW London",
+      dates: "Aug 2018 – Aug 2019",
+      achievements: [
+        "Teaching support assistant targeting educational interventions for students aged 11-19 with Special Educational Needs (EHCP) at Ofsted 'Outstanding' rated Academy School",
+        "Supported student learning through positive reinforcement and a structured classroom environment",
+        "Collaborated with multidisciplinary team including external Educational Psychologists and Speech & Language Therapists to implement specified learning strategies"
       ]
     }
   ],
 
   skills: [
     {
-      category: "Supply Chain & Logistics",
-      skills: ["Vendor Negotiation", "Contract Management", "International Shipping", "Inventory Management", "Procurement Strategy"]
+      category: "IT & Cloud",
+      skills: ["Networking", "Systems Administration", "MS Azure", "AWS", "IT Troubleshooting", "Active Directory", "Cloud Computing"]
+    },
+    {
+      category: "Automation & Integration",
+      skills: ["n8n Workflow Automation", "Workato Platform", "API Integration", "Process Orchestration", "Webhook Configuration", "Low-Code Development", "Data Pipeline Design"]
     },
     {
       category: "Operations & Project Management",
-      skills: ["Process Optimization", "Cross-functional Collaboration", "Client Relationship Management", "Quality Assurance", "Cost Control"]
+      skills: ["Supply Chain Management", "International Logistics Coordination", "Vendor Relationship Management", "Project Management", "Resource Allocation", "Inventory Management"]
     },
     {
-      category: "Technical & IT",
-      skills: ["Excel", "Google Sheets", "AWS Cloud Practitioner Certified", "Google IT Support Certified", "Data Analysis", "CRM Systems"]
-    },
-    {
-      category: "Soft Skills",
-      skills: ["Problem Solving", "Strategic Thinking", "Communication", "Team Leadership", "Adaptability"]
+      category: "Business & Soft Skills",
+      skills: ["Customer Service", "Data Analysis", "Process Mapping", "Performance Metrics", "Team Leadership", "Problem Solving", "Strategic Thinking"]
     }
   ],
 
@@ -190,26 +209,32 @@ export const resumeData: ResumeData = {
 
   awards: [
     {
-      title: "Employee of the Quarter – Q2 2022",
-      description: "Recognized for exceptional performance in managing international supply chain operations during a period of high demand and logistical challenges.",
-      year: "2022"
+      title: "Workato Automations Pro II",
+      description: "Advanced certification in enterprise automation and integration platform design, demonstrating expertise in workflow orchestration and API connectivity.",
+      year: "2025"
     },
     {
       title: "AWS Certified Cloud Practitioner",
-      description: "Achieved industry-recognized certification demonstrating proficiency in cloud computing concepts, AWS services, and best practices.",
+      description: "Industry-recognized certification demonstrating proficiency in cloud computing concepts, AWS services, and best practices.",
       year: "2024"
     },
     {
       title: "Google IT Support Professional Certificate",
-      description: "Completed comprehensive training covering IT fundamentals, system administration, networking, and security.",
+      description: "Comprehensive training covering IT fundamentals, system administration, networking, and security.",
       year: "2024"
+    },
+    {
+      title: "Jack Petchey Award",
+      description: "Recognized for outstanding achievement and leadership within the Scouts Association.",
+      year: "2018"
     }
   ],
 
   additionalExperience: [
-    "Volunteer Experience: Community outreach coordinator for local environmental initiatives (2017–2018)",
-    "Professional Development: Completed courses in Advanced Excel, Project Management, and Supply Chain Optimization",
-    "Hobbies & Interests: Hiking, sustainable living practices, technology trends, and Scandinavian culture"
+    "Seasonal Work: Kiwi Harvester/Pruner at Mat Johnston Contracting (2023–2024)",
+    "Hospitality & Events: Bartender/Waiter at Laguna Jacks Bar (2020), Cinque Terre (2021), Royal Ascot (2019); London Marathon setup & onsite operations; Fraser Island Tour Ambassador; WOMAD Festival Ambassador",
+    "Leadership & Sports: First Team ARU Rowing Club – Head of the Cam Winners (2018)",
+    "Volunteer Experience: Receptionist & Team Lead at Nomads Australia; Scouts Association member and Jack Petchey Award recipient"
   ],
 
   contact: {
