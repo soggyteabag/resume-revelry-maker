@@ -3,22 +3,44 @@ import { resumeData } from "@/data/resume";
 
 const Experience = () => {
   const { experience } = resumeData;
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }
+    }
+  };
+
+  const listVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
+    hidden: { opacity: 0, x: -20 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.4 }
     }
   };
 
@@ -40,17 +62,28 @@ const Experience = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             className="space-y-16"
           >
             {experience.map((exp, index) => (
               <motion.div 
                 key={index} 
-                variants={itemVariants}
-                className="grid md:grid-cols-3 gap-6"
+                variants={cardVariants}
+                whileHover={{ 
+                  x: 8,
+                  transition: { duration: 0.2 }
+                }}
+                className="grid md:grid-cols-3 gap-6 p-6 -mx-6 rounded-lg hover:bg-card/50 transition-colors duration-300"
               >
                 <div>
-                  <p className="text-sm text-accent mb-2">{exp.dates}</p>
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-sm text-accent mb-2 font-medium"
+                  >
+                    {exp.dates}
+                  </motion.p>
                   <h3 className="text-xl font-bold text-foreground mb-1">
                     {exp.title}
                   </h3>
@@ -61,26 +94,19 @@ const Experience = () => {
                 
                 <motion.ul 
                   className="md:col-span-2 space-y-3"
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.1
-                      }
-                    }
-                  }}
+                  variants={listVariants}
                 >
                   {exp.achievements.map((achievement, i) => (
                     <motion.li 
                       key={i} 
-                      variants={{
-                        hidden: { opacity: 0, x: -10 },
-                        visible: { opacity: 1, x: 0 }
-                      }}
-                      className="flex items-start text-muted-foreground leading-relaxed"
+                      variants={itemVariants}
+                      className="flex items-start text-muted-foreground leading-relaxed group"
                     >
-                      <span className="text-accent mr-3 mt-1 flex-shrink-0">→</span>
+                      <motion.span 
+                        className="text-accent mr-3 mt-1 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        →
+                      </motion.span>
                       {achievement}
                     </motion.li>
                   ))}

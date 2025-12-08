@@ -32,6 +32,7 @@ All colors MUST be HSL.
     --shadow-soft: 0 2px 8px 0 rgb(0 0 0 / 0.05);
     --shadow-medium: 0 4px 16px 0 rgb(0 0 0 / 0.08);
     --shadow-large: 0 8px 32px 0 rgb(0 0 0 / 0.12);
+    --shadow-glow: 0 0 40px -10px hsl(160 84% 45% / 0.3);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -63,6 +64,7 @@ All colors MUST be HSL.
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 160 84% 65%;
+    --shadow-glow: 0 0 40px -10px hsl(160 84% 65% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -89,12 +91,41 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Fade animations */
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
   
   .animate-slide-up {
     animation: slideUp 0.6s ease-out forwards;
+  }
+
+  /* Gradient animation */
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* Shimmer effect */
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--card)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  /* Pulse glow */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  /* Float animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
   
   @keyframes fadeIn {
@@ -115,5 +146,66 @@ All colors MUST be HSL.
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px -5px hsl(var(--accent) / 0.5);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Interactive hover effects */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-large);
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+/* Loading skeleton */
+@layer components {
+  .skeleton {
+    @apply animate-shimmer rounded;
   }
 }
