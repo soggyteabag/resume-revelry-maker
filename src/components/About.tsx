@@ -4,27 +4,46 @@ import { resumeData } from "@/data/resume";
 const About = () => {
   const { about } = resumeData;
   
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
     <section id="about" className="py-24 bg-background border-t border-border">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <h2 className="text-3xl font-bold mb-12 text-foreground flex items-center gap-4">
+            <motion.h2 
+              variants={itemVariants}
+              className="text-3xl font-bold mb-12 text-foreground flex items-center gap-4"
+            >
               <span className="text-accent">01.</span> ABOUT
-            </h2>
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-12">
               {about.paragraphs.map((paragraph, index) => (
                 <motion.p 
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-                  viewport={{ once: true }}
+                  variants={itemVariants}
                   className="text-lg leading-relaxed text-muted-foreground"
                 >
                   {paragraph}
