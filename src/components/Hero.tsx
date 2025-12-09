@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroPhoto from "@/assets/hero-photo.jpg";
 import { resumeData } from "@/data/resume";
 
@@ -12,6 +13,33 @@ const Hero = () => {
 
   return (
     <section className="relative h-[70vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* Gallery Navigation - Hamburger Menu */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        className="absolute top-6 left-6 z-50"
+      >
+        <Link
+          to="/gallery"
+          aria-label="View Gallery"
+          className="group flex items-center gap-3 p-3 rounded-lg bg-secondary/60 backdrop-blur-sm border border-border/30 hover:border-accent/50 hover:bg-secondary/80 transition-all duration-300"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex flex-col gap-1"
+          >
+            <span className="block w-5 h-0.5 bg-muted-foreground group-hover:bg-accent transition-colors duration-300" />
+            <span className="block w-5 h-0.5 bg-muted-foreground group-hover:bg-accent transition-colors duration-300" />
+            <span className="block w-5 h-0.5 bg-muted-foreground group-hover:bg-accent transition-colors duration-300" />
+          </motion.div>
+          <span className="text-sm text-muted-foreground group-hover:text-accent transition-colors duration-300 hidden sm:block">
+            Gallery
+          </span>
+        </Link>
+      </motion.div>
+
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-background to-primary/10 animate-gradient-shift" />
       
