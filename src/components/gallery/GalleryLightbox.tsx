@@ -25,7 +25,7 @@ const GalleryLightbox = ({ item, onClose }: GalleryLightboxProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-background/95 backdrop-blur-md"
+          className="absolute inset-0 bg-[#0f172a]/95 backdrop-blur-md"
         />
 
         {/* Content */}
@@ -34,7 +34,7 @@ const GalleryLightbox = ({ item, onClose }: GalleryLightboxProps) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative z-10 max-w-5xl w-full max-h-[90vh] flex flex-col md:flex-row gap-6 bg-card rounded-xl overflow-hidden border border-border/50 shadow-2xl"
+          className="relative z-10 max-w-5xl w-full max-h-[90vh] flex flex-col md:flex-row gap-6 bg-[#1e293b] rounded-xl overflow-hidden border border-slate-700/50 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -42,7 +42,7 @@ const GalleryLightbox = ({ item, onClose }: GalleryLightboxProps) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2 rounded-full bg-secondary/80 hover:bg-accent text-muted-foreground hover:text-accent-foreground transition-colors duration-300"
+            className="absolute top-4 right-4 z-20 p-2 rounded-full bg-[#0f172a]/80 hover:bg-accent text-slate-300 hover:text-white transition-colors duration-300"
             aria-label="Close lightbox"
           >
             <X className="w-5 h-5" />
@@ -70,10 +70,10 @@ const GalleryLightbox = ({ item, onClose }: GalleryLightboxProps) => {
             <span className="text-xs uppercase tracking-wider text-accent font-medium mb-2">
               {item.category}
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               {item.title}
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-slate-400 leading-relaxed">
               {item.description}
             </p>
           </motion.div>

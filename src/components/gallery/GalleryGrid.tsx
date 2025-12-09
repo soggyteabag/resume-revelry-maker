@@ -66,7 +66,7 @@ const GalleryGrid = ({ items, onItemClick }: GalleryGridProps) => {
           >
             {/* Loading skeleton */}
             {!loadedImages.has(item.id) && (
-              <div className="absolute inset-0 bg-secondary animate-pulse" />
+              <div className="absolute inset-0 bg-[#1e293b] animate-pulse" />
             )}
 
             {/* Image */}
@@ -77,9 +77,6 @@ const GalleryGrid = ({ items, onItemClick }: GalleryGridProps) => {
                 loadedImages.has(item.id) ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => handleImageLoad(item.id)}
-              style={{
-                minHeight: item.size === 'large' ? '400px' : item.size === 'medium' ? '280px' : '180px',
-              }}
             />
 
             {/* Hover Overlay */}
@@ -87,13 +84,13 @@ const GalleryGrid = ({ items, onItemClick }: GalleryGridProps) => {
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end justify-start p-4"
+              className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/95 via-[#0f172a]/50 to-transparent flex items-end justify-start p-4"
             >
               <div className="text-left">
                 <span className="text-xs uppercase tracking-wider text-accent font-medium">
                   {item.category}
                 </span>
-                <h3 className="text-lg font-semibold text-foreground mt-1">
+                <h3 className="text-lg font-semibold text-white mt-1">
                   {item.title}
                 </h3>
               </div>
